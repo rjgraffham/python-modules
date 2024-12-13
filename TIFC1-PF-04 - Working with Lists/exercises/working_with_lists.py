@@ -48,3 +48,20 @@ for n in range(1, 11):
 
 for n in multiples:
     print(n)
+
+
+print("---")  #  divider between sections of output
+
+
+# 4.6  Friend's pizzas extension to 4.1
+friend_pizzas = my_fave_pizzas[:]
+my_fave_pizzas.append("mexican chicken")
+friend_pizzas.append("hawai'ian")
+
+print("My favourite pizzas:")
+for pizza in my_fave_pizzas:
+    print(f"- {pizza}")
+
+print("My friend's favourite pizzas:")
+for pizza in friend_pizzas:
+    print(f"- {pizza}")
