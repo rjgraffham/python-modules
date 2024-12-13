@@ -65,3 +65,18 @@ for pizza in my_fave_pizzas:
 print("My friend's favourite pizzas:")
 for pizza in friend_pizzas:
     print(f"- {pizza}")
+
+
+print("---")  #  divider between sections of output
+
+
+# 4.7  Tuple exercise
+breakfast_foods = ("tomato", "toast", "sausages", "fried egg", "bacon")
+print("The original breakfast foods:")
+for food in breakfast_foods:
+    print(f"- {food}")
+
+breakfast_foods = ("hash brown", "black pudding") + breakfast_foods[2:]
+print("The revised breakfast foods:")
+for food in breakfast_foods:
+    print(f"- {food}")
