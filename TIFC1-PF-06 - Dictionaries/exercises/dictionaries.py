@@ -58,16 +58,60 @@ print("---")  # Section divider for output
 
 
 # 6.4  Pets
+pets = [
+    {
+        "name": "Lucky",
+        "animal": "cat",
+        "fur_colour": "black",
+        "owner": "Mark"
+    },
+    {
+        "name": "Pepsi",
+        "animal": "dog",
+        "fur_colour": "white",
+        "owner": "Halley"
+    }
+]
 
+for pet in pets:
+    print(f"{pet['name']} is a {pet['animal']} with {pet['fur_colour']} fur. {pet['name']}'s owner is {pet['owner']}.")
 
 
 print("---")  # Section divider for output
 
 
 # 6.5  Favourite places
+favorite_places = {
+    "Robert": "Birmingham",
+    "Mark": "Glasgow",
+    "Halley": "Coventry"
+}
+
+for person, place in favorite_places.items():
+    print(f"{person}'s favourite place is {place}.")
 
 
 print("---")  # Section divider for output
 
 
 # 6.6  Cities
+cities = {
+    "Birmingham": {
+        "country": "England",
+        "population": 1_160_000,
+        "fact": "Birmingham has more miles of canals than Venice"
+    },
+    "Glasgow": {
+        "country": "Scotland",
+        "population": 635_000,
+        "fact": "Glasgow was founded by St. Mungo, patron saint of salmon"
+    },
+    "Coventry": {
+        "country": "England",
+        "population": 345_000,
+        "fact": "Coventry has a statue of Lady Godiva, who reportedly rode through the city nude"
+    }
+}
+
+for city, city_data in cities.items():
+    print(f"{city} is a city in {city_data['country']}, with a population of approximately {city_data['population']:,}. Fun fact: {city_data['fact']}!")
