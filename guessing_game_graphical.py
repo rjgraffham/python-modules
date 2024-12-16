@@ -71,7 +71,7 @@ def main(min_secret, max_secret):
     app.grid_columnconfigure(0, weight=1)
     app.grid_rowconfigure(0, weight=1)
     app.title("Guessing Game")
-    app.geometry("900x300")
+    app.geometry("800x180")
     frame = ttk.Frame(app, padding = 10)
     frame.grid(column=0, row=0, sticky="NESW")
     frame.grid_columnconfigure(0, weight=1)
