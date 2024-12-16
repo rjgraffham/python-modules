@@ -15,7 +15,7 @@ from tkinter import Tk, StringVar, ttk
 
 def make_guess_evaluator(min_secret, max_secret, guess_var, guess_entry, msg_label, guess_btn):
     secret_number = random.randint(min_secret, max_secret)
-    msg_label["text"] = f"I'm thinking of a secret number no less than {min_secret} and no more than {max_secret}."
+    msg_label["text"] = f"I'm thinking of a secret number no less than {min_secret:,} and no more than {max_secret:,}."
     guess_count = 0
     playing = True
 
@@ -25,7 +25,7 @@ def make_guess_evaluator(min_secret, max_secret, guess_var, guess_entry, msg_lab
         # if already completed, the button is now a play again button
         if not playing:
             secret_number = random.randint(min_secret, max_secret)
-            msg_label["text"] = f"I'm thinking of a new secret number no less than {min_secret} and no more than {max_secret}."
+            msg_label["text"] = f"I'm thinking of a new secret number no less than {min_secret:,} and no more than {max_secret:,}."
             guess_btn["text"] = "Guess"
             guess_count = 0
             guess_entry.config(state="enabled")
@@ -35,30 +35,30 @@ def make_guess_evaluator(min_secret, max_secret, guess_var, guess_entry, msg_lab
         guess = guess_var.get()
 
         try:
-            guess = int(guess)
+            guess = int(guess.replace(",", "").replace(" ", ""))
         except ValueError:
             msg_label["text"] = "Guess must be a number."
             return
 
         if guess < min_secret or guess > max_secret:
-            msg_label["text"] = f"Guess must be between {min_secret} and {max_secret}."
+            msg_label["text"] = f"Guess must be between {min_secret:,} and {max_secret:,}."
             return
 
         # if we got past the validity checking, this is a valid guess, increment the guess count
         guess_count += 1
 
         if guess < secret_number:
-            msg_label["text"] = f"{guess} is too low!"
+            msg_label["text"] = f"{guess:,} is too low!"
         elif guess > secret_number:
-            msg_label["text"] = f"{guess} is too high!"
+            msg_label["text"] = f"{guess:,} is too high!"
         elif guess_count == 1:  # implicitly the guess is correct if it was neither lower or higher
-            msg_label["text"] = f"Got it in one! The secret number was {secret_number}."
+            msg_label["text"] = f"Got it in one! The secret number was {secret_number:,}."
             guess_btn["text"] = "Play again!"
             guess_var.set("")
             guess_entry.config(state="disabled")
             playing = False
         else:
-            msg_label["text"] = f"Well done! The secret number was {secret_number}. You got it in {guess_count} guesses."
+            msg_label["text"] = f"Well done! The secret number was {secret_number:,}. You got it in {guess_count} guesses."
             guess_btn["text"] = "Play again!"
             guess_var.set("")
             guess_entry.config(state="disabled")
@@ -81,7 +81,7 @@ def main(min_secret, max_secret):
     frame.grid_rowconfigure(3, weight=1)
     msg_label = ttk.Label(frame, font=("Segoe UI", 16, "bold"))
     msg_label.grid(column=0, row=0, sticky="S")
-    ttk.Label(frame, text=f"Enter your guess ({min_secret}-{max_secret}):", font=("Segoe UI", 16, "")).grid(column=0, row=1)
+    ttk.Label(frame, text=f"Enter your guess ({min_secret:,}-{max_secret:,}):", font=("Segoe UI", 16, "")).grid(column=0, row=1)
     guess_var = StringVar()
     guess_entry = ttk.Entry(frame, textvariable=guess_var, font=("Segoe UI", 16, ""))
     guess_entry.grid(column=0, row=2)
