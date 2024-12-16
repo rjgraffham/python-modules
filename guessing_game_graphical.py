@@ -58,7 +58,7 @@ def make_guess_evaluator(min_secret, max_secret, guess_var, guess_entry, msg_lab
             guess_entry.config(state="disabled")
             playing = False
         else:
-            msg_label["text"] = f"Well done! The secret number was {secret_number:,}. You got it in {guess_count} guesses."
+            msg_label["text"] = f"Well done! The secret number was {secret_number:,}. You got it in {guess_count:,} guesses."
             guess_btn["text"] = "Play again!"
             guess_var.set("")
             guess_entry.config(state="disabled")
