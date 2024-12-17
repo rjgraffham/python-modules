@@ -28,16 +28,39 @@ else:
 print("---")  # Section separator for output
 
 
-# 7.4  ___
+# 7.4  Pizza toppings
+while True:
+    topping = input("What topping would you like to add to your pizza (or 'quit' to quit)? ").strip()
+    if topping.lower() == "quit":
+        print("Bye!")
+        break
+    else:
+        print(f"Okay, I'll add {topping} to your pizza.")
 
 
 print("---")  # Section separator for output
 
 
-# 7.5  ___
+# 7.5  Ticket prices
+age = int(input("How old are you (in whole years)?\n").strip())
+
+if age < 3:
+    ticket_price = 0
+elif age <= 12:
+    ticket_price = 10
+else:
+    ticket_price = 15
+
+if ticket_price == 0:
+    print("Your ticket is free.")
+else:
+    print(f"Your ticket is ${ticket_price}.")
 
 
 print("---")  # Section separator for output
 
 
-# 7.6  ___
+# 7.6  Infinite loop (Ctrl+C to get out)
+print("Press Ctrl+C if you want to escape this infinite loop!")
+while True:
+    pass
