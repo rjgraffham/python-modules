@@ -3,6 +3,14 @@ import random
 from tkinter import Tk, StringVar, ttk
 
 ### TODO: make an object to attach state to instead of passing it around
+### TODO: further to the above - break out the guessing logic (state, messages,
+###       etc.) to a class that can be instantiated by any of the three programs
+###       so that they can share improvements to that. of note, this means the
+###       responses should be able to distinguish between "this is an error",
+###       "this is a response to an incorrect guess", and "this is a response
+###       to a correct guess", as those may be displayed differently (e.g.,
+###       the CLI guesser ends on a correct guess, prompts again on an error,
+###       or simply displays higher/lower on an incorrect guess)
 ### TODO: make the output a scrollable label instead of replacing
 ### TODO: scroll to the bottom of the label every time it's added to
 ### TODO: do not allow pressing Return in the entry when it's disabled
