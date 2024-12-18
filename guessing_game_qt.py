@@ -58,7 +58,7 @@ class GuessingGame():
         self.start_game()
 
         # Show the window built above
-        window.resize(800, 600)
+        window.resize(400, 300)
         window.show()
 
         # Exit when the app exits
@@ -69,4 +69,7 @@ class GuessingGame():
         self.outputLabel.setText("[outputLabel]")
 
 if __name__ == "__main__":
+    # # For screen share demonstration, scale up the entire app
+    # import os
+    # os.environ["QT_SCALE_FACTOR"] = "3"
     GuessingGame()
